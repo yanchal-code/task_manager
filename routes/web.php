@@ -21,10 +21,10 @@ Route::post('/logout', function () {
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
-    Route::get('/dashboard',                      [AdminController::class, 'dashboard']);
-    Route::get('/users',                          [AdminController::class, 'users']);
-    Route::get('/users/{user}/tasks',             [AdminController::class, 'userTasks'])->name('admin.user.tasks');
-    Route::get('/tasks',                          [AdminController::class, 'tasks']);
-    Route::delete('/tasks/{task}/delete',         [AdminController::class, 'softDelete'])->name('admin.tasks.delete');
-    Route::get('/tasks/export',                   [AdminController::class, 'export'])->name('admin.tasks.export');
+    Route::get('/dashboard',[AdminController::class, 'dashboard']);
+    Route::get('/users', [AdminController::class, 'users']);
+    Route::get('/users/{user}/tasks',[AdminController::class, 'userTasks'])->name('admin.user.tasks');
+    Route::get('/tasks',[AdminController::class, 'tasks']);
+    Route::delete('/tasks/{task}/delete', [AdminController::class, 'softDelete'])->name('admin.tasks.delete');
+    Route::get('/tasks/export',[AdminController::class, 'export'])->name('admin.tasks.export');
 });
